@@ -79,6 +79,49 @@ public:
     }
 };
 
+// clase tarjeta de credito
+class TarjetaCredito
+{
+private:
+    string clave, numTarjeta, fechaVencimiento;
+    // Persona nombre, tipoDocumento;-> hace falta la asociacion de la clase persona
+public:
+    TarjetaCredito()
+    {
+        clave = numTarjeta = fechaVencimiento = "";
+        // nombre = tipoDocumento = ""; -> hace falta la asociacion de la clase persona
+    }
+    TarjetaCredito(string clave, string numTarjeta, string fechaVencimiento)
+    {
+        this->clave = clave;
+        this->numTarjeta = numTarjeta;
+        this->fechaVencimiento = fechaVencimiento;
+    }
+    void setClave(string clave)
+    {
+        this->clave = clave;
+    }
+    void setNumTarjeta(string numTarjeta)
+    {
+        this->numTarjeta = numTarjeta;
+    }
+    void setFechaVencimiento(string fechaVencimiento)
+    {
+        this->fechaVencimiento = fechaVencimiento;
+    }
+    string getClave()
+    {
+        return clave;
+    }
+    string getNumTarjeta()
+    {
+        return numTarjeta;
+    }
+    string getFechaVencimiento()
+    {
+        return fechaVencimiento;
+    }
+};
 using namespace std;
 
 int main()
