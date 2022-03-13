@@ -8,6 +8,7 @@ int main(){
     cout << "Hola";
 
     cout << "Bienvenida Maibeth";
+    cout << "gracias uwu";
 
     cout << "chupe la que cuelgue"<< endl;
 
