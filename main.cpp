@@ -49,6 +49,34 @@ public:
     {
         this->documento = documento;
     }
+    string getNombre()
+    {
+        return nombre;
+    }
+    string getEdad()
+    {
+        return edad;
+    }
+    string getFechaNacimiento()
+    {
+        return fechaNacimiento;
+    }
+    string getDireccion()
+    {
+        return direccion;
+    }
+    string getTelefono()
+    {
+        return telefono;
+    }
+    string getTipoDocumento()
+    {
+        return tipoDocumento;
+    }
+    string getDocumento()
+    {
+        return documento;
+    }
 };
 
 using namespace std;
