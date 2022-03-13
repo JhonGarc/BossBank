@@ -78,9 +78,9 @@ public:
         return documento;
     }
 };
-
 // clase tarjeta de credito
 class TarjetaCredito
+
 {
 private:
     string clave, numTarjeta, fechaVencimiento;
@@ -122,6 +122,166 @@ public:
         return fechaVencimiento;
     }
 };
+class Banco
+{
+private:
+    string vidaCrediticia;
+    // aca falta hacer la asociacion de la clase persona
+public:
+    Banco()
+    {
+        vidaCrediticia = "";
+    }
+    Banco(string vidaCrediticia)
+    {
+        this->vidaCrediticia = vidaCrediticia;
+    }
+
+    void setVidaCrediticia(string setVidaCrediticia)
+    {
+        this->vidaCrediticia = vidaCrediticia;
+    }
+
+    string getVidaCrediticia()
+    {
+        return vidaCrediticia;
+    }
+};
+class Bancolombia : Banco
+{
+private:
+    string subsidios;
+
+public:
+    Bancolombia() : Banco()
+    {
+        subsidios = "";
+    }
+    Bancolombia(string subdsidios, string vidaCrediticia) : Banco(vidaCrediticia)
+    {
+        this->subsidios = subsidios;
+    }
+
+    void setSubsidios(string subsidios)
+    {
+        this->subsidios = subsidios;
+    }
+
+    string getSubsidios()
+    {
+        return subsidios;
+    }
+};
+class Davivienda : Banco
+{
+
+public:
+    Davivienda() : Banco()
+    {
+    }
+};
+class CajaSocial : Banco
+{
+
+public:
+    CajaSocial() : Banco()
+    {
+    }
+};
+class Occidente : Banco
+{
+
+public:
+    Occidente() : Banco()
+    {
+    }
+};
+class Falabella : Banco
+{
+
+public:
+    Falabella() : Banco()
+    {
+    }
+};
+class Bogota : Banco
+{
+
+public:
+    Bogota() : Banco()
+    {
+    }
+};
+class Colpatria : Banco
+{
+
+public:
+    Colpatria() : Banco()
+    {
+    }
+};
+class Popular : Banco
+{
+
+public:
+    Popular() : Banco()
+    {
+    }
+};
+class Agrario : Banco
+{
+private:
+    string propiedadesAgricolas;
+
+public:
+    Agrario() : Banco()
+    {
+        propiedadesAgricolas = "";
+    }
+    Agrario(string propiedadesAgricolas, string vidaCrediticia) : Banco(vidaCrediticia)
+    {
+        this->propiedadesAgricolas = propiedadesAgricolas;
+    }
+
+    void setPropiedadesAgricolas(string propiedadesAgricolas)
+    {
+        this->propiedadesAgricolas = propiedadesAgricolas;
+    }
+
+    string getPropieadadesAgricolas()
+    {
+        return propiedadesAgricolas;
+    }
+};
+class BBVA : Banco
+{
+private:
+    string pension;
+
+public:
+    BBVA() : Banco()
+    {
+        pension = "";
+    }
+    BBVA(string pension, string vidaCrediticia) : Banco(vidaCrediticia)
+    {
+        this->pension = pension;
+    }
+
+    void setPension(string pension)
+    {
+        this->pension = pension;
+    }
+    string getPension()
+    {
+        return pension;
+    }
+};
+
+
+
+
+
 using namespace std;
 
 int main()
