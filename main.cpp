@@ -3,20 +3,22 @@
 class Persona
 {
 private:
-    string nombre, edad, fechaNacimiento, direccion, telefono, tipoDocumento, documento;
+    string nombre, edad, fechaNacimiento, direccion, telefono, tipoCuenta, tipoDocumento, documento;
+    // faltan los vectores de TarjetaCredito y Celular
 
 public:
     Persona()
     {
-        nombre = edad = fechaNacimiento = direccion = telefono = tipoDocumento = documento = "";
+        nombre = edad = fechaNacimiento = direccion = telefono = tipoCuenta = tipoDocumento = documento = "";
     }
-    Persona(string nombre, string edad, string fechaNacimiento, string direccion, string telefono, string tipoDocumento, string documento)
+    Persona(string nombre, string edad, string fechaNacimiento, string direccion, string telefono, string tipoCuenta, string tipoDocumento, string documento)
     {
         this->nombre = nombre;
         this->edad = edad;
         this->fechaNacimiento = fechaNacimiento;
         this->direccion = direccion;
         this->telefono = telefono;
+        this->tipoCuenta = tipoCuenta;
         this->tipoDocumento = tipoDocumento;
         this->documento = documento;
     }
@@ -40,6 +42,10 @@ public:
     void setTelefono(string telefono)
     {
         this->telefono = telefono;
+    }
+    void setTipoCuenta(string tipoCuenta)
+    {
+        this-> tipoCuenta = tipoCuenta;
     }
     void setTipoDocumento(string tipoDocumento)
     {
@@ -69,6 +75,10 @@ public:
     {
         return telefono;
     }
+    string getTipoCuenta()
+    {
+        return tipoCuenta;
+    }
     string getTipoDocumento()
     {
         return tipoDocumento;
@@ -79,93 +89,6 @@ public:
     }
 };
 // clase tarjeta de credito
-
-class Recibos {
-   private:
-    string estrato;
-    string codigoRecibo; //falta persona Personas
-  public:
-
-    Recibos() {
-        estrato = codigoRecibo = "";
-    }
-     Recibos(string estrato, string codigoRecibo) {
-         this->estrato = estrato;
-         this->codigoRecibo = codigoRecibo;
-     }
-    virtual string nombreEmpresa () = 0;
-    float valorRecibo(float valorPagar) {
-        return valorPagar;
-    }
-
-    void setEstrato(string estrato) {
-        this->estrato = estrato;
-    }
-    void setCodigoRecibo(string codigoRecibo) {
-        this->codigoRecibo = codigoRecibo;
-    }
-
-    string getEstrato() {
-        return estrato;
-    }
-    string codigoRecibo() {
-        return codigoRecibo;
-    }   
-};
-
-class InternetHogar:public Recibos {
-    private:
-    float precio;
-    public:
-
-    InternetHogar():Recibos() {
-        precio = 0.0;
-    }
-    InternetHogar(float precio,string estrato, string codigoRecibo ):Recibos(estrato, codigoRecibo) {
-        this->precio = precio;
-    }
-    string empresa() {
-        string empresaServicio = "Claro Hogar";
-        return empresaServicio;
-    }
-    float valorRecibo() {
-        float n = 0.0;
-        return n;
-    }
-    void setPrecio(float precio) {
-        this->precio = precio;
-    }
-    float getPrecio() {
-        return precio;
-    }
-
-};
-
-
-class Luz:public Recibos {
-    private:
-    float precio;
-    public:
-    Luz():Recibos() {
-        precio = 0.0;
-    }
-
-    Luz(float precio,string estrato, string codigoRecibo):Recibos(estrato, codigoRecibo) {
-        this->precio = precio;
-    }
-
-    void setPrecio(float precio) {
-        this->precio = precio;
-    }
-
-    float getPrecio() {
-        return precio;
-    }
-};
-
-
-
-
 class TarjetaCredito
 
 {
@@ -234,7 +157,7 @@ public:
         return vidaCrediticia;
     }
 };
-class Bancolombia : public Banco
+class Bancolombia : Banco
 {
 private:
     string subsidios;
@@ -259,7 +182,7 @@ public:
         return subsidios;
     }
 };
-class Davivienda : public Banco
+class Davivienda : Banco
 {
 
 public:
@@ -267,7 +190,7 @@ public:
     {
     }
 };
-class CajaSocial : public Banco
+class CajaSocial : Banco
 {
 
 public:
@@ -275,7 +198,7 @@ public:
     {
     }
 };
-class Occidente : public Banco
+class Occidente : Banco
 {
 
 public:
@@ -283,7 +206,7 @@ public:
     {
     }
 };
-class Falabella : public Banco
+class Falabella : Banco
 {
 
 public:
@@ -291,7 +214,7 @@ public:
     {
     }
 };
-class Bogota : public Banco
+class Bogota : Banco
 {
 
 public:
@@ -299,7 +222,7 @@ public:
     {
     }
 };
-class Colpatria : public Banco
+class Colpatria : Banco
 {
 
 public:
@@ -307,7 +230,7 @@ public:
     {
     }
 };
-class Popular : public Banco
+class Popular : Banco
 {
 
 public:
@@ -315,7 +238,7 @@ public:
     {
     }
 };
-class Agrario : public Banco
+class Agrario : Banco
 {
 private:
     string propiedadesAgricolas;
@@ -340,7 +263,7 @@ public:
         return propiedadesAgricolas;
     }
 };
-class BBVA : public Banco
+class BBVA : Banco
 {
 private:
     string pension;
@@ -364,6 +287,255 @@ public:
         return pension;
     }
 };
+class Recibos
+{
+private:
+    string estrato = "";
+    string codigoRecibo = "";
+    //falta la composicion persona
+public:
+    Recibos()
+    {
+        estrato, codigoRecibo = "";
+    }
+    Recibos(string estrato, string codigoRecibo)
+    {
+        this-> estrato = estrato;
+        this-> codigoRecibo = codigoRecibo;
+    }
+    void setEstrato(string estrato)
+    {
+        this-> estrato = estrato;
+    }
+    void setCodigoRecibo(string codigoRecibo)
+    {
+        this-> codigoRecibo = codigoRecibo;
+    }
+    string getEstrato()
+    {
+        return estrato;
+    }
+    string getCodigoRecibo()
+    {
+        return codigoRecibo;
+    }
+    virtual string empresa() = 0;
+    // falta el float valorRecibo
+};
+class InternetHogar: Recibos
+{
+    private:
+    float precio = 0.0;
+    public:
+    InternetHogar(): Recibos()
+    {
+        precio = 0,0;
+    }
+    InternetHogar(float precio) : Recibos()
+    {
+        this->precio = precio;
+    }
+    void setPrecio(float precio)
+    {
+        this-> precio = precio;
+    }
+    float getPrecio()
+    {
+        return precio;
+    }
+    string empresa() override
+    {
+        return "Internet";
+    }
+    //falta el valorRecibo que heredo
+};
+class Luz: Recibos
+{
+    private:
+    float precio = 0.0;
+    public:
+    Luz(): Recibos()
+    {
+        precio = 0,0;
+    }
+    Luz(float precio) : Recibos()
+    {
+        this->precio = precio;
+    }
+    void setPrecio(float precio)
+    {
+        this-> precio = precio;
+    }
+    float getPrecio()
+    {
+        return precio;
+    }
+    string empresa() override
+    {
+        return "Luz";
+    }
+    //falta el valorRecibo que heredo
+};
+class Gas: Recibos
+{
+    private:
+    float precio = 0.0;
+    public:
+    Gas(): Recibos()
+    {
+        precio = 0,0;
+    }
+    Gas(float precio) : Recibos()
+    {
+        this->precio = precio;
+    }
+    void setPrecio(float precio)
+    {
+        this-> precio = precio;
+    }
+    float getPrecio()
+    {
+        return precio;
+    }
+    string empresa() override
+    {
+        return "Gas";
+    }
+    //falta el valorRecibo que heredo
+};
+class Agua: Recibos
+{
+    private:
+    float precio = 0.0;
+    public:
+    Agua(): Recibos()
+    {
+        precio = 0,0;
+    }
+    Agua(float precio) : Recibos()
+    {
+        this->precio = precio;
+    }
+    void setPrecio(float precio)
+    {
+        this-> precio = precio;
+    }
+    float getPrecio()
+    {
+        return precio;
+    }
+    string empresa() override
+    {
+        return "Agua";
+    }
+    //falta el valorRecibo que heredo
+};
+class GastosAdicionales: Persona
+{
+
+};
+class Transporte: GastosAdicionales
+{
+
+};
+class Vehiculo: Transporte
+{
+    private:
+    string placa = "";
+    // faltan el nombre: persona y el telefono
+    public:
+    Vehiculo()
+    {
+        placa: "";
+    }
+    Vehiculo(string placa)
+    {
+        this->placa = placa;
+    }
+    void setPlaca(string placa)
+    {
+        this-> placa = placa;
+    }
+    string getPlaca()
+    {
+        return placa;
+    }
+    //falta el calcular precio y marca(): string
+};
+class Carro: Vehiculo
+{
+
+};
+class Moto: Vehiculo
+{
+
+};
+class Tecnomecanica//hacer la composicion
+{
+
+};
+class Soat// hacer la composicion
+{
+
+};
+class Entretenimiento: GastosAdicionales
+{
+    private:
+    public:
+};
+class Plataformas: Entretenimiento
+{
+    private:
+    float precio = 0.0;
+    //falta nombre: persona
+    public:
+    Plataformas(): Entretenimiento()
+    {
+        precio = 0.0;
+    }
+    Plataformas(float precio): Entretenimiento()
+    {
+        this-> precio = precio;
+    }
+    void setPrecio(float precio)
+    {
+        this-> precio = precio;
+    }
+    float getPrecio()
+    {
+        return precio;
+    }
+    virtual float CarlcularPrecio() = 0;
+    virtual string TipoPlataforma() = 0;
+    //falta plataforma activa(): true
+};
+class Musica: Plataformas
+{
+
+};
+class Spotify: Musica
+{
+
+};
+class Streaming: Plataformas
+{
+// colocar el calclar precio
+};
+class HBO: Streaming
+{
+
+};
+class Disney: Streaming
+{
+
+};
+class Netflix: Streaming
+{
+
+};//en las tres hay que hacer lo de referenciaSuscripcion
+
+
+
 
 
 using namespace std;
