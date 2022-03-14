@@ -79,6 +79,93 @@ public:
     }
 };
 // clase tarjeta de credito
+
+class Recibos {
+   private:
+    string estrato;
+    string codigoRecibo; //falta persona Personas
+  public:
+
+    Recibos() {
+        estrato = codigoRecibo = "";
+    }
+     Recibos(string estrato, string codigoRecibo) {
+         this->estrato = estrato;
+         this->codigoRecibo = codigoRecibo;
+     }
+    virtual string nombreEmpresa () = 0;
+    float valorRecibo(float valorPagar) {
+        return valorPagar;
+    }
+
+    void setEstrato(string estrato) {
+        this->estrato = estrato;
+    }
+    void setCodigoRecibo(string codigoRecibo) {
+        this->codigoRecibo = codigoRecibo;
+    }
+
+    string getEstrato() {
+        return estrato;
+    }
+    string codigoRecibo() {
+        return codigoRecibo;
+    }   
+};
+
+class InternetHogar:public Recibos {
+    private:
+    float precio;
+    public:
+
+    InternetHogar():Recibos() {
+        precio = 0.0;
+    }
+    InternetHogar(float precio,string estrato, string codigoRecibo ):Recibos(estrato, codigoRecibo) {
+        this->precio = precio;
+    }
+    string empresa() {
+        string empresaServicio = "Claro Hogar";
+        return empresaServicio;
+    }
+    float valorRecibo() {
+        float n = 0.0;
+        return n;
+    }
+    void setPrecio(float precio) {
+        this->precio = precio;
+    }
+    float getPrecio() {
+        return precio;
+    }
+
+};
+
+
+class Luz:public Recibos {
+    private:
+    float precio;
+    public:
+    Luz():Recibos() {
+        precio = 0.0;
+    }
+
+    Luz(float precio,string estrato, string codigoRecibo):Recibos(estrato, codigoRecibo) {
+        this->precio = precio;
+    }
+
+    void setPrecio(float precio) {
+        this->precio = precio;
+    }
+
+    float getPrecio() {
+        return precio;
+    }
+};
+
+
+
+
 class TarjetaCredito
 
 {
@@ -147,7 +234,7 @@ public:
         return vidaCrediticia;
     }
 };
-class Bancolombia : Banco
+class Bancolombia : public Banco
 {
 private:
     string subsidios;
@@ -172,7 +259,7 @@ public:
         return subsidios;
     }
 };
-class Davivienda : Banco
+class Davivienda : public Banco
 {
 
 public:
@@ -180,7 +267,7 @@ public:
     {
     }
 };
-class CajaSocial : Banco
+class CajaSocial : public Banco
 {
 
 public:
@@ -188,7 +275,7 @@ public:
     {
     }
 };
-class Occidente : Banco
+class Occidente : public Banco
 {
 
 public:
@@ -196,7 +283,7 @@ public:
     {
     }
 };
-class Falabella : Banco
+class Falabella : public Banco
 {
 
 public:
@@ -204,7 +291,7 @@ public:
     {
     }
 };
-class Bogota : Banco
+class Bogota : public Banco
 {
 
 public:
@@ -212,7 +299,7 @@ public:
     {
     }
 };
-class Colpatria : Banco
+class Colpatria : public Banco
 {
 
 public:
@@ -220,7 +307,7 @@ public:
     {
     }
 };
-class Popular : Banco
+class Popular : public Banco
 {
 
 public:
@@ -228,7 +315,7 @@ public:
     {
     }
 };
-class Agrario : Banco
+class Agrario : public Banco
 {
 private:
     string propiedadesAgricolas;
@@ -253,7 +340,7 @@ public:
         return propiedadesAgricolas;
     }
 };
-class BBVA : Banco
+class BBVA : public Banco
 {
 private:
     string pension;
@@ -277,9 +364,6 @@ public:
         return pension;
     }
 };
-
-
-
 
 
 using namespace std;
