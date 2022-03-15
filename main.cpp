@@ -132,6 +132,8 @@ public:
         return fechaVencimiento;
     }
 };
+
+
 class Banco
 {
 private:
@@ -287,6 +289,12 @@ public:
         return pension;
     }
 };
+
+
+//de aca hacia arriba lo hace Jhon y hacia abajo lo hace Luis
+
+
+
 class Recibos
 {
 private:
@@ -430,6 +438,13 @@ class Agua: public Recibos
     }
     //falta el valorRecibo que heredo
 };
+
+
+
+
+
+
+
 class GastosAdicionales: public Persona
 {
 
