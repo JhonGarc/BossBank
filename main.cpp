@@ -157,7 +157,7 @@ public:
         return vidaCrediticia;
     }
 };
-class Bancolombia : Banco
+class Bancolombia : public Banco
 {
 private:
     string subsidios;
@@ -182,7 +182,7 @@ public:
         return subsidios;
     }
 };
-class Davivienda : Banco
+class Davivienda : public Banco
 {
 
 public:
@@ -190,7 +190,7 @@ public:
     {
     }
 };
-class CajaSocial : Banco
+class CajaSocial : public Banco
 {
 
 public:
@@ -198,7 +198,7 @@ public:
     {
     }
 };
-class Occidente : Banco
+class Occidente : public Banco
 {
 
 public:
@@ -206,7 +206,7 @@ public:
     {
     }
 };
-class Falabella : Banco
+class Falabella : public Banco
 {
 
 public:
@@ -214,7 +214,7 @@ public:
     {
     }
 };
-class Bogota : Banco
+class Bogota : public Banco
 {
 
 public:
@@ -222,7 +222,7 @@ public:
     {
     }
 };
-class Colpatria : Banco
+class Colpatria : public Banco
 {
 
 public:
@@ -230,7 +230,7 @@ public:
     {
     }
 };
-class Popular : Banco
+class Popular : public Banco
 {
 
 public:
@@ -238,7 +238,7 @@ public:
     {
     }
 };
-class Agrario : Banco
+class Agrario : public Banco
 {
 private:
     string propiedadesAgricolas;
@@ -263,7 +263,7 @@ public:
         return propiedadesAgricolas;
     }
 };
-class BBVA : Banco
+class BBVA : public Banco
 {
 private:
     string pension;
@@ -322,7 +322,7 @@ public:
     virtual string empresa() = 0;
     // falta el float valorRecibo
 };
-class InternetHogar: Recibos
+class InternetHogar: public Recibos
 {
     private:
     float precio = 0.0;
@@ -349,7 +349,7 @@ class InternetHogar: Recibos
     }
     //falta el valorRecibo que heredo
 };
-class Luz: Recibos
+class Luz: public Recibos
 {
     private:
     float precio = 0.0;
@@ -376,7 +376,7 @@ class Luz: Recibos
     }
     //falta el valorRecibo que heredo
 };
-class Gas: Recibos
+class Gas: public Recibos
 {
     private:
     float precio = 0.0;
@@ -403,7 +403,7 @@ class Gas: Recibos
     }
     //falta el valorRecibo que heredo
 };
-class Agua: Recibos
+class Agua: public Recibos
 {
     private:
     float precio = 0.0;
@@ -430,15 +430,15 @@ class Agua: Recibos
     }
     //falta el valorRecibo que heredo
 };
-class GastosAdicionales: Persona
+class GastosAdicionales: public Persona
 {
 
 };
-class Transporte: GastosAdicionales
+class Transporte:  public GastosAdicionales
 {
 
 };
-class Vehiculo: Transporte
+class Vehiculo: public Transporte
 {
     private:
     string placa = "";
@@ -462,11 +462,11 @@ class Vehiculo: Transporte
     }
     //falta el calcular precio y marca(): string
 };
-class Carro: Vehiculo
+class Carro: public Vehiculo
 {
 
 };
-class Moto: Vehiculo
+class Moto: public Vehiculo
 {
 
 };
@@ -478,12 +478,12 @@ class Soat// hacer la composicion
 {
 
 };
-class Entretenimiento: GastosAdicionales
+class Entretenimiento: public GastosAdicionales
 {
     private:
     public:
 };
-class Plataformas: Entretenimiento
+class Plataformas: public Entretenimiento
 {
     private:
     float precio = 0.0;
@@ -509,27 +509,27 @@ class Plataformas: Entretenimiento
     virtual string TipoPlataforma() = 0;
     //falta plataforma activa(): true
 };
-class Musica: Plataformas
+class Musica: public Plataformas
 {
 
 };
-class Spotify: Musica
+class Spotify: public Musica
 {
 
 };
-class Streaming: Plataformas
+class Streaming: public Plataformas
 {
 // colocar el calclar precio
 };
-class HBO: Streaming
+class HBO: public Streaming
 {
 
 };
-class Disney: Streaming
+class Disney: public Streaming
 {
 
 };
-class Netflix: Streaming
+class Netflix: public Streaming
 {
 
 };//en las tres hay que hacer lo de referenciaSuscripcion
